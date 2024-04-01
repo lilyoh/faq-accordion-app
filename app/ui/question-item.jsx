@@ -6,7 +6,7 @@ import clsx from 'clsx';
 
 import Image from 'next/image';
 
-const QuestionItem = () => {
+const QuestionItem = ({ question, answer }) => {
 	const [showAnswer, setShowAnswer] = useState(false);
 
 	function handleShowAnswer() {
@@ -16,7 +16,7 @@ const QuestionItem = () => {
 	return (
 		<li>
 			<div>
-				<h3 onClick={handleShowAnswer}>QUESTION</h3>
+				<h3 onClick={handleShowAnswer}>{question}</h3>
 				<button>
 					<Image
 						src={showAnswer ? '/images/icon-minus.svg' : '/images/icon-plus.svg'}
@@ -26,7 +26,7 @@ const QuestionItem = () => {
 					/>
 				</button>
 			</div>
-			<p className={clsx({ block: showAnswer === true, hidden: showAnswer === false })}>ANSWER</p>
+			<p className={clsx({ block: showAnswer === true, hidden: showAnswer === false })}>{answer}</p>
 		</li>
 	);
 };

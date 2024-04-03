@@ -1,20 +1,14 @@
 import { promises as fs } from 'fs';
 
-import QuestionItem from './question-item';
+import QuestionWrapper from './question-wrapper';
 
 const QuestionList = async () => {
 	const file = await fs.readFile(process.cwd() + '/public/data/data.json', 'utf-8');
-	const data = JSON.parse(file).data;
+	const questions = JSON.parse(file).data;
 
 	return (
 		<ul>
-			{data.map((question) => (
-				<QuestionItem
-					key={question.question}
-					question={question.question}
-					answer={question.answer}
-				/>
-			))}
+			<QuestionWrapper questions={questions} />
 		</ul>
 	);
 };

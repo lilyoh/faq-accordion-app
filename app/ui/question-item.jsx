@@ -1,32 +1,23 @@
 'use client';
 
-import { useState } from 'react';
-
-import clsx from 'clsx';
-
 import Image from 'next/image';
 
-const QuestionItem = ({ question, answer }) => {
-	const [showAnswer, setShowAnswer] = useState(false);
-
-	function handleShowAnswer() {
-		setShowAnswer(!showAnswer);
-	}
-
+const QuestionItem = ({ question, answer, toggleQuestion, isOpened }) => {
 	return (
-		<li>
-			<div>
-				<h3 onClick={handleShowAnswer}>{question}</h3>
-				<button>
-					<Image
-						src={showAnswer ? '/images/icon-minus.svg' : '/images/icon-plus.svg'}
-						alt="icon plus"
-						width={30}
-						height={31}
-					/>
-				</button>
+		<li className="mb-4 space-y-6">
+			<div
+				onClick={toggleQuestion}
+				className="cursor-pointer flex justify-between space-x-4"
+			>
+				<h3 className="font-bold">{question}</h3>
+				<Image
+					src={isOpened ? '/images/icon-minus.svg' : '/images/icon-plus.svg'}
+					alt="icon plus"
+					width={30}
+					height={31}
+				/>
 			</div>
-			<p className={clsx({ block: showAnswer === true, hidden: showAnswer === false })}>{answer}</p>
+			<p className={isOpened ? 'block' : 'hidden'}>{answer}</p>
 		</li>
 	);
 };

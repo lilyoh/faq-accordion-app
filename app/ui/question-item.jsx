@@ -9,7 +9,7 @@ const QuestionItem = ({ question, answer, toggleQuestion, isOpened }) => {
 				onClick={toggleQuestion}
 				className="cursor-pointer flex justify-between space-x-4"
 			>
-				<h3 className="font-bold hover:text-VividPurple">{question}</h3>
+				<button className="font-bold hover:text-VividPurple text-left">{question}</button>
 				<Image
 					src={isOpened ? '/images/icon-minus.svg' : '/images/icon-plus.svg'}
 					alt="icon plus"

@@ -23,6 +23,7 @@ module.exports = {
 				LightPink: 'hsl(275, 100%, 97%)',
 				GrayishPurple: 'hsl(292, 16%, 49%)',
 				DarkPurple: 'hsl(292, 42%, 14%)',
+				VividPurple: '#AD28EB',
 			},
 		},
 	},
